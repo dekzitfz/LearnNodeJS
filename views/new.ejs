@@ -1,0 +1,15 @@
+<% include partials/header.ejs %>
+
+<h1 style="text-align: center;">Add New</h1>
+
+<form style="text-align: center;" class="container form-group" action="/home" method="POST">
+    <input class="form-control" type="text" name="title" placeholder="title here" />
+    <br>
+    <input class="form-control" type="text" name="image" placeholder="image url here" />
+    <br>
+    <input class="form-control" type="text" name="description" placeholder="description here" />
+    <br>
+    <a class="btn btn-primary" href="#">Submit</a>
+</form>
+
+<% include partials/footer.ejs %>

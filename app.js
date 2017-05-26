@@ -20,6 +20,10 @@ app.get("/home/new", function(req, res){
     res.render("new");
 });
 
+app.post("/home", function(req, res){
+
+});
+
 app.listen(3000, function(){
     console.log("server starting");
 });

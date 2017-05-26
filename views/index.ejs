@@ -14,29 +14,20 @@
 
         <div class="contaier">
             <div class="row">
+                <% items.forEach(function(item){ %>
                 <div class="col-xs-6 col-md-3">
                     <div class="jumbotron">
-                        <p id="prg" align="center">testing</p>
+                        <p id="prg" align="center"><%= item.title %></p>
                         <a href="#" class="thumbnail">
-                            <img src="img/img.png">
+                            <img src="<%= item.image %>">
                         </a>
                         <center>
                             <button type="button" class="btn btn-default">Read more</button>
                         </center>
                     </div>
                 </div>
-                <div class="col-xs-6 col-md-3">
-                    <div class="jumbotron">
-                        <p align="center">testing</p>
-                        <a href="#" class="thumbnail">
-                            <img src="img/img.png">
-                        </a>
-                        <center>
-                            <button type="button" class="btn btn-default">Read more</button>
-                        </center>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-md-3">
+                <% }) %>
+                <!--<div class="col-xs-6 col-md-3">
                     <div class="jumbotron">
                         <p align="center">testing</p>
                         <a href="#" class="thumbnail">
@@ -58,6 +49,17 @@
                         </center>
                     </div>
                 </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="jumbotron">
+                        <p align="center">testing</p>
+                        <a href="#" class="thumbnail">
+                            <img src="img/img.png">
+                        </a>
+                        <center>
+                            <button type="button" class="btn btn-default">Read more</button>
+                        </center>
+                    </div>
+                </div>-->
             </div>
         </div>
 

@@ -6,7 +6,8 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", function(request, response){
-    response.render("index");
+    //response.render("index");
+    response.send("this is index page");
 });
 
 app.listen(3000, function(){

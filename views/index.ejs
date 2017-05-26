@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>My Page</title>
-        <style></style>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    
-    </head>
-    <body class="body">
-        
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                <a class="navbar-brand" href="#">Home</a>
-                <a class="navbar-brand" href="#">Blogs</a>
-                </div>
-            </div>
-        </nav>
+<% include partials/header.ejs %>
 
         <div class="container">
             <div class="row">
@@ -53,11 +36,11 @@
                         </center>
                     </div>
                 </div>
-                <!--<div class="col-xs-6 col-md-3">
+                <div class="col-xs-6 col-md-3">
                     <div class="jumbotron">
                         <p align="center">testing</p>
                         <a href="#" class="thumbnail">
-                            <img src="img.png">
+                            <img src="img/img.png">
                         </a>
                         <center>
                             <button type="button" class="btn btn-default">Read more</button>
@@ -68,27 +51,14 @@
                     <div class="jumbotron">
                         <p align="center">testing</p>
                         <a href="#" class="thumbnail">
-                            <img src="img.png">
+                            <img src="img/img.png">
                         </a>
                         <center>
                             <button type="button" class="btn btn-default">Read more</button>
                         </center>
                     </div>
-                </div>-->
+                </div>
             </div>
         </div>
 
-        <script
-            src="http://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-            
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-        
-
-        <script>
-            var elm = document.getElementById('prg');
-            elm.style.color = "red";
-        </script>
-    </body>
-</html>
+<% include partials/footer.ejs %>

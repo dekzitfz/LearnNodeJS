@@ -6,9 +6,16 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 app.get("/", function(request, response){
-    //response.render("index");
-    response.send("this is index page");
+    response.redirect("/home");
 });
+
+app.get("/home", function(req, res){
+    res.render("index");
+});
+
+// app.get("/home/new", function(req, res){
+
+// });
 
 app.listen(3000, function(){
     console.log("server starting");

@@ -1,8 +1,9 @@
-var express = require("express"),
-    app     = express();
+var express     = require("express"),
+    bodyParser  = require("body-parser"),
+    app         = express();
 
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
 app.set("view engine", "ejs");
 
 app.get("/", function(request, response){
@@ -21,7 +22,10 @@ app.get("/home/new", function(req, res){
 });
 
 app.post("/home", function(req, res){
-
+    var title   = req.params.title;
+    var image   = req.params.image;
+    var desc    = req.params.description;
+    
 });
 
 app.listen(3000, function(){

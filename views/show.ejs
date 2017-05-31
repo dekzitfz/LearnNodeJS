@@ -1,0 +1,16 @@
+<% include partials/header %>
+
+<div class="container">
+    <div class="row" style="text-align: center;">
+        <h1><%= item.title %></h1>
+        <hr>
+        <img src="<%= item.image %>" alt="">
+        <br>
+        <hr>
+        <div class="thumbnail">
+            <p><%= item.description %></p>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>

@@ -97,6 +97,18 @@ app.post("/home", function(req, res){
     });
 });
 
+
+//show route
+app.get("/home/:id", function(req, res){
+    Itempost.findById(req.params.id, function(err, foundItem){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("show", {item: foundItem});
+        }
+    });
+});
+
 app.listen(3000, function(){
     console.log("server starting");
 });

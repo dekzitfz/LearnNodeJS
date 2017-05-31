@@ -5,16 +5,20 @@ var express     = require("express"),
 
 mongoose.connect('mongodb://localhost/kucing');
 
+//middleware
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
+//schema db
 var myWebSchema = new mongoose.Schema({
     title: String,
     image: String,
     description: String
 });
 var Itempost = mongoose.model('Itempost', myWebSchema);
+
+//insert data
 // Itempost.create(
 //     {
 //         title: "asal post",
@@ -46,17 +50,20 @@ var Itempost = mongoose.model('Itempost', myWebSchema);
 //     }
 // });
 
-
+//homepage
 app.get("/", function(request, response){
     //redirect to /home
     response.redirect("/home");
 });
 
 app.get("/home", function(req, res){
-    //render index.ejs
+    //get data from Itempost
     Itempost.find({}, function(err, allItems){
-        if(err){console.log(err)}
+        if(err){
+            console.log(err)
+        }
         else{
+            //rendex index.js and send data
             res.render("index", {items: allItems});
         }
     });

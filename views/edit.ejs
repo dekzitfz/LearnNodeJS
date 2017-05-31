@@ -1,0 +1,15 @@
+<% include partials/header.ejs %>
+
+<h1 style="text-align: center;">Edit <%= item.title%></h1>
+
+<form style="text-align: center;" class="container form-group" action="/home/<%= item._id%>?_method=PUT" method="POST">
+    <input class="form-control" type="text" name="item[title]" placeholder="title here" value="<%= item.title%>" />
+    <br>
+    <input class="form-control" type="text" name="item[image]" placeholder="image url here" value="<%= item.image%>" />
+    <br>
+    <input class="form-control" type="text" name="item[description]" placeholder="description here" value="<%= item.description%>" />
+    <br>
+    <input class="btn btn-primary" type="submit" name="submit" />
+</form>
+
+<% include partials/footer.ejs %>

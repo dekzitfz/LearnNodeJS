@@ -1,12 +1,14 @@
 var express     = require("express"),
     bodyParser  = require("body-parser"),
     mongoose    = require('mongoose'),
+    method      = require('method-override'),
     app         = express();
 
 //mongoose.connect('mongodb://localhost/kucing');
 mongoose.connect('mongodb://dekz:qwerty123@ds157971.mlab.com:57971/nodedb');
 
 //middleware
+app.use(method("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -97,6 +99,17 @@ app.post("/home", function(req, res){
     });
 });
 
+//update route
+app.put("/home/:id", function(req, res){
+    Itempost.findByIdAndUpdate(req.params.id, req.body.item, function(err, updateItem){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect(req.params.id);
+        }
+    });
+});
+
 
 //show route
 app.get("/home/:id", function(req, res){
@@ -105,6 +118,17 @@ app.get("/home/:id", function(req, res){
             console.log(err);
         }else{
             res.render("show", {item: foundItem});
+        }
+    });
+});
+
+//edit route
+app.get("/home/:id/edit", function(req, res){
+    Itempost.findById(req.params.id, function(err, foundItem){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("edit", {item: foundItem});
         }
     });
 });

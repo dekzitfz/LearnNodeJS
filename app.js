@@ -3,7 +3,8 @@ var express     = require("express"),
     mongoose    = require('mongoose'),
     app         = express();
 
-mongoose.connect('mongodb://localhost/kucing');
+//mongoose.connect('mongodb://localhost/kucing');
+mongoose.connect('mongodb://dekz:qwerty123@ds157971.mlab.com:57971/nodedb');
 
 //middleware
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,9 +22,9 @@ var Itempost = mongoose.model('Itempost', myWebSchema);
 //insert data
 // Itempost.create(
 //     {
-//         title: "asal post",
+//         title: "asal post 2",
 //         image: "http://www.photosforclass.com/download/34482054780",
-//         description: "ini deskripsi"
+//         description: "ini deskripsi 2"
 //     },
 //     function(error, item){
 //         if(error){console.log(error)}
@@ -75,12 +76,26 @@ app.get("/home/new", function(req, res){
     res.render("new");
 });
 
-// app.post("/home", function(req, res){
-//     var title   = req.params.title;
-//     var image   = req.params.image;
-//     var desc    = req.params.description;
+//create route
+app.post("/home", function(req, res){
+    //get value from new.ejs
+    var title       = req.body.title;
+    var image       = req.body.image;
+    var description = req.body.description;
 
-// });
+    //create object
+    var newPost = {title: title, image: image, description: description};
+
+    //send object
+    Itempost.create(newPost, function(err, newPost){
+        if(err){
+            console.log(err);
+        }else{
+            //redirect after success
+            res.redirect("/");
+        }
+    });
+});
 
 app.listen(3000, function(){
     console.log("server starting");

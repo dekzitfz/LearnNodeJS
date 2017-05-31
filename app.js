@@ -105,7 +105,19 @@ app.put("/home/:id", function(req, res){
         if(err){
             console.log(err);
         }else{
+            console.log(req.body.item);
             res.redirect(req.params.id);
+        }
+    });
+});
+
+//delete route
+app.delete("/home/:id", function(req, res){
+    Itempost.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+        }else{
+            res.redirect("/home");
         }
     });
 });

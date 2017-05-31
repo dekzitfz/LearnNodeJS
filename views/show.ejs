@@ -11,6 +11,9 @@
             <p><%= item.description %></p>
         </div>
         <a class="btn btn-warning" href="/home/<%= item._id%>/edit">Edit</a>
+        <form style="display: inline;" action="/home/<%= item._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>
     </div>
 </div>
 
